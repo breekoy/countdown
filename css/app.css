@@ -1,17 +1,13 @@
 body{
+	background-color: #b61924;
 	margin: 0;
 	padding: 0;
-	background-color: #000;
-	background: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.9)), url('../img/background.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-blend-mode: overlay;
 	font-family: 'Mountains of Christmas', cursive;
 	font-size: 2em;
 }
 
 .container{
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -21,10 +17,10 @@ body{
 	height: 100vh;
 }
 
-#countdownChristmas{
-	color: #006633;
+.content{
+	position: absolute;
 }
 
-#countdownNewYear{
-	color: #cc3333;
+#countdownChristmas, #countdownNewYear{
+	color: #fff;
 }
