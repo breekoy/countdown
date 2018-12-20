@@ -16,16 +16,19 @@ $.getJSON('https://api.timezonedb.com/v2.1/get-time-zone?key=44QN6ASGVSEB&format
 				let minutesLeftBeforeNewYear = Math.floor((differenceNewYear % (1000 * 60 * 60)) / (1000 * 60));
 				let secondsLeftBeforeNewYear = Math.floor((differenceNewYear % (1000 * 60))/ 1000);
 
-				document.getElementById('countdownChristmas').innerHTML = daysLeftBeforeXmas + ' days ' + 
-					hoursLeftBeforeXmas + ' hours ' + 
-					minutesLeftBeforeXmas + ' minutes ' +
-					secondsLeftBeforeXmas + ' seconds ' +
+				const pluralize = (count, noun, suffix = 's ') =>
+  					`${count} ${noun}${count !== 1 ? suffix : ' '}`;
+
+				document.getElementById('countdownChristmas').innerHTML = pluralize(daysLeftBeforeXmas + 'day') + 
+					pluralize(hoursLeftBeforeXmas + 'hour') + 
+					pluralize(minutesLeftBeforeXmas + 'minute') +
+					pluralize(secondsLeftBeforeXmas + 'second') +
 					'before christmas!';
 
-				document.getElementById('countdownNewYear').innerHTML = daysLeftBeforeNewYear + ' days ' + 
-					hoursLeftBeforeNewYear + ' hours ' + 
-					minutesLeftBeforeNewYear + ' minutes ' +
-					secondsLeftBeforeNewYear + ' seconds ' +
+				document.getElementById('countdownNewYear').innerHTML = pluralize(daysLeftBeforeNewYear, 'day') + 
+					pluralize(hoursLeftBeforeNewYear, 'hour') + 
+					pluralize(minutesLeftBeforeNewYear, 'minute') +
+					pluralize(secondsLeftBeforeNewYear, 'second') +
 					'before new year!';;
 
 				differenceChristmas -= 1000;
