@@ -17,7 +17,7 @@ $.getJSON('https://api.timezonedb.com/v2.1/get-time-zone?key=44QN6ASGVSEB&format
 			differenceNewYear = dateNewYear.getTime() - dateNow.getTime();
 
 			
-			let timer = setInterval(function(){
+			setInterval(function(){
 				let daysLeftBeforeXmas = Math.floor(differenceChristmas / (1000 * 60 * 60 * 24));
 				let hoursLeftBeforeXmas = Math.floor((differenceChristmas % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 				let minutesLeftBeforeXmas = Math.floor((differenceChristmas % (1000 * 60 * 60)) / (1000 * 60));
