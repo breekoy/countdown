@@ -5,11 +5,11 @@ $.getJSON('https://api.timezonedb.com/v2.1/get-time-zone?key=44QN6ASGVSEB&format
 			let differenceChristmas = dateChristmas.getTime() - dateNow.getTime();
 			let differenceNewYear = dateNewYear.getTime() - dateNow.getTime();
 
-			dateChristmas = (differenceChristmas <= 0) 
+			dateChristmas = (differenceChristmas < 0) 
 				? new Date(dateChristmas.getFullYear() + 1, dateChristmas.getMonth(), dateChristmas.getDate())
 				: dateChristmas;
 
-			dateNewYear = (differenceNewYear <= 0) 
+			dateNewYear = (differenceNewYear < 0) 
 				? new Date(dateNewYear.getFullYear() + 1, dateNewYear.getMonth(), dateChristmas.getDate())
 				: dateNewYear;
 
