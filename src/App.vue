@@ -28,7 +28,7 @@
     },
     methods: {
       init () {
-        Axios.get('https://api.timezonedb.com/v2.1/get-time-zone?key=44QN6ASGVSEB&format=json&by=zone&zone=Asia/Manila')
+        Axios.get('http://worldtimeapi.org/api/ip')
           .then(response => {
             this.currentTime = response.data
             bus.$emit('time-updated', this.currentTime)
