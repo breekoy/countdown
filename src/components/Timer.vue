@@ -10,9 +10,6 @@
 
   export default {
     name: 'Timer',
-    props: {
-      time: Object
-    },
     data () {
       return {
         currentTime: null,

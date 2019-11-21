@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container mx-auto h-screen">
       <div class="flex flex-wrap min-h-full items-center">
-        <timer :time="currentTime"/>
+        <timer/>
       </div>
     </div>
   </div>
