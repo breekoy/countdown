@@ -27,17 +27,26 @@
     },
     methods: {
       computeTimeLeft () {
-        if (!this._.isNull(this.currentTime)) {
-          this.currentTimeMomentInstance = moment(this.currentTime.formatted, "YYYY-MM-DD HH:mm:ss")
+        this.currentTimeMomentInstance = moment(this.currentTime.datetime)
 
-          this.christmasDate = moment(this.currentTimeMomentInstance.year() + "-12-25", "YYYY-MM-DD")
-          
-          if (this.currentTimeMomentInstance.diff(this.christmasDate) >= 0) {
-            this.christmasDate.add(1, 'y')
+        setInterval(() => {
+          if (!this._.isNull(this.currentTime)) {
+
+            this.christmasDate = moment(this.currentTimeMomentInstance.year() + "-12-25", "YYYY-MM-DD")
+            
+            if (this.currentTimeMomentInstance.diff(this.christmasDate) >= 0) {
+              this.christmasDate.add(1, 'y')
+            }
+
+            this.timeRemaining = this.pluralize('day', this.getRemainingDays()) + 
+              this.pluralize('hour', this.getRemainingHours()) + 
+              this.pluralize('minute', this.getRemainingMinutes()) + 
+              this.pluralize('second', this.getRemainingSeconds()) + 
+              'left until christmas'
+
+            this.currentTimeMomentInstance.add(1, 's')
           }
-
-          this.timeRemaining = this.getRemainingDays() + ' days left until christmas'
-        }
+        }, 1000)
       },
       getRemainingDays () {
         return Math.abs(this.currentTimeMomentInstance.diff(this.christmasDate, 'days'))
