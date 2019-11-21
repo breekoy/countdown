@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  import { bus } from '../main'
   import moment from 'moment'
 
   export default {
@@ -19,8 +20,11 @@
         timeRemaining: null
       }
     },
-    created () {
-      this.init()
+    mounted () {
+      bus.$on('time-updated', time => {
+        this.currentTime = time
+        this.computeTimeLeft()
+      })
     },
     methods: {
       init () {
