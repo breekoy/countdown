@@ -1,8 +1,9 @@
 <template>
-    <div id="timer" class="min-w-full text-center">
-      {{ (!_.isNull(timeRemaining)) ? 
-        timeRemaining : 
-        'Loading...' }}
+    <div id="timer" class="flex flex-wrap min-w-full text-center justify-center text-6xl">
+        <div class="rounded-lg bg-red-200 shadow-2xl m-4 py-2 px-6 text-red-600"><p class="font-extrabold">{{ !_.isNull(timeRemaining.days) ? timeRemaining.days : '00' }}</p><p class="text-sm">Days</p></div>
+        <div class="rounded-lg bg-red-200 shadow-2xl m-4 py-2 px-6 text-red-600"><p class="font-extrabold">{{ !_.isNull(timeRemaining.hours) ? timeRemaining.hours : '00' }}</p><p class="text-sm">Hours</p></div>
+        <div class="rounded-lg bg-red-200 shadow-2xl m-4 py-2 px-6 text-red-600"><p class="font-extrabold">{{ !_.isNull(timeRemaining.minutes) ? timeRemaining.minutes : '00' }}</p><p class="text-sm">Minutes</p></div>
+        <div class="rounded-lg bg-red-200 shadow-2xl m-4 py-2 px-6 text-red-600"><p class="font-extrabold">{{ !_.isNull(timeRemaining.seconds) ? timeRemaining.seconds : '00' }}</p><p class="text-sm">Seconds</p></div>
     </div>
 </template>
 
@@ -18,7 +19,12 @@
         currentTime: null,
         currentTimeMomentInstance: null,
         christmasDate: null,
-        timeRemaining: null
+        timeRemaining: {
+          days: null,
+          hours: null,
+          minutes: null,
+          seconds: null
+        }
       }
     },
     mounted () {
@@ -40,11 +46,19 @@
               this.christmasDate.add(1, 'y')
             }
 
-            this.timeRemaining = this.pluralize('day', this.getRemainingDays()) + 
-              this.pluralize('hour', this.getRemainingHours()) + 
-              this.pluralize('minute', this.getRemainingMinutes()) + 
-              this.pluralize('second', this.getRemainingSeconds()) + 
-              'left until christmas'
+            // this.timeRemaining = this.pluralize('day', this.getRemainingDays()) + 
+            //   this.pluralize('hour', this.getRemainingHours()) + 
+            //   this.pluralize('minute', this.getRemainingMinutes()) + 
+            //   this.pluralize('second', this.getRemainingSeconds()) + 
+            //   'left until christmas'
+
+            this.timeRemaining = {
+              days: this._.padStart(this.getRemainingDays(), 2, '0'),
+              hours: this._.padStart(this.getRemainingHours(), 2, '0'),
+              minutes: this._.padStart(this.getRemainingMinutes(), 2, '0'),
+              seconds: this._.padStart(this.getRemainingSeconds(), 2, '0')
+            }
+
 
             this.currentTimeMomentInstance.add(1, 's')
           }
