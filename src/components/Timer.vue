@@ -7,6 +7,7 @@
 <script>
   import { bus } from '../main'
   import moment from 'moment'
+  import pluralize from 'pluralize'
 
   export default {
     name: 'Timer',
