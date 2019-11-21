@@ -28,7 +28,7 @@
     },
     methods: {
       init () {
-        Axios.get('http://worldtimeapi.org/api/ip')
+        Axios.get('https://worldtimeapi.org/api/ip')
           .then(response => {
             this.currentTime = response.data
             bus.$emit('time-updated', this.currentTime)
