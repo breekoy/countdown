@@ -33,26 +33,6 @@
             this.currentTime = response.data
             bus.$emit('time-updated', this.currentTime)
           })
-
-        // setTimeout(() => {
-        //   this.currentTime = {
-        //     status:"OK",
-        //     message:"",
-        //     countryCode:"PH",
-        //     countryName:"Philippines",
-        //     zoneName:"Asia/Manila",
-        //     abbreviation:"PHT",
-        //     gmtOffset:28800,
-        //     dst:"0",
-        //     zoneStart:275151600,
-        //     zoneEnd:null,
-        //     nextAbbreviation:null,
-        //     timestamp:1574285150,
-        //     formatted:"2019-11-20 21:25:50"
-        //   }
-
-        //   bus.$emit('time-updated', this.currentTime)
-        // }, 3000)
       }
     }
   }
