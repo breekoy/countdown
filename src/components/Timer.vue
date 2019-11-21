@@ -24,9 +24,6 @@
       })
     },
     methods: {
-      init () {
-        this.computeTimeLeft()
-      },
       computeTimeLeft () {
         if (!this._.isNull(this.time)) {
           this.currentTime = moment(this.time.formatted, "YYYY-MM-DD HH:mm:ss")
