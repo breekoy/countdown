@@ -1,6 +1,8 @@
 <template>
     <div id="timer" class="min-w-full text-center">
-      {{ (!_.isNull(timeRemaining)) ? timeRemaining : 'Loading...' }}
+      {{ (!_.isNull(timeRemaining)) ? 
+        timeRemaining : 
+        'Loading...' }}
     </div>
 </template>
 
@@ -50,6 +52,18 @@
       },
       getRemainingDays () {
         return Math.abs(this.currentTimeMomentInstance.diff(this.christmasDate, 'days'))
+      },
+      getRemainingHours () {
+        return Math.floor((Math.abs(this.currentTimeMomentInstance.diff(this.christmasDate)) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)))
+      },
+      getRemainingMinutes () {
+        return Math.floor((Math.abs(this.currentTimeMomentInstance.diff(this.christmasDate)) % (1000 * 60 * 60)) / (1000 * 60))
+      },
+      getRemainingSeconds () {
+        return Math.floor((Math.abs(this.currentTimeMomentInstance.diff(this.christmasDate)) % (1000 * 60))/ 1000)
+      },
+      pluralize(word, quantity) {
+        return this._.padStart(quantity, 2, '0') + ' ' + pluralize(word, quantity) + ' '
       }
     }
   }
