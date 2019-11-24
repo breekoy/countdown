@@ -13,7 +13,8 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "pluralize": "^8.0.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "x-particles": "^1.0.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",

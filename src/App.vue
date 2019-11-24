@@ -5,6 +5,7 @@
         <timer/>
       </div>
     </div>
+    <x-particles class="particles-background" :config="particleConfig"/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
   import { bus } from './main'
   import Axios from 'axios'
   import Timer from './components/Timer'
+  import particleConfig from './config/particles'
 
   export default {
     name: 'app',
@@ -20,7 +22,8 @@
     },
     data() {
       return {
-        currentTime: null
+        currentTime: null,
+        particleConfig: particleConfig
       }
     },
     created () {
@@ -37,3 +40,16 @@
     }
   }
 </script>
+
+<style scoped>
+  .particles-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+  }
+</style>

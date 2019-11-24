@@ -46,12 +46,6 @@
               this.christmasDate.add(1, 'y')
             }
 
-            // this.timeRemaining = this.pluralize('day', this.getRemainingDays()) + 
-            //   this.pluralize('hour', this.getRemainingHours()) + 
-            //   this.pluralize('minute', this.getRemainingMinutes()) + 
-            //   this.pluralize('second', this.getRemainingSeconds()) + 
-            //   'left until christmas'
-
             this.timeRemaining = {
               days: this._.padStart(this.getRemainingDays(), 2, '0'),
               hours: this._.padStart(this.getRemainingHours(), 2, '0'),
